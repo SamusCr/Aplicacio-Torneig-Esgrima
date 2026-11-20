@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcj2sk5bt3leh"]
+
+[ext_resource type="Script" path="res://Scenes/participant.gd" id="1_nadd5"]
+[ext_resource type="StyleBox" uid="uid://dd8ndiiacj3eb" path="res://Scenes/Focus_casillas.tres" id="2_epmy0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7cmpf"]
+bg_color = Color(0.823529, 0.0156863, 0, 0.996078)
+
+[node name="Participant" type="HBoxContainer" node_paths=PackedStringArray("button_Eliminar", "Text_numero", "Text_nombre")]
+show_behind_parent = true
+offset_right = 327.0
+offset_bottom = 36.0
+script = ExtResource("1_nadd5")
+button_Eliminar = NodePath("BotonEliminar")
+Text_numero = NodePath("Numero")
+Text_nombre = NodePath("Nombre")
+
+[node name="Numero" type="TextEdit" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+editable = false
+
+[node name="Nombre" type="LineEdit" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = ExtResource("2_epmy0")
+
+[node name="BotonEliminar" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 30)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7cmpf")
+
+[connection signal="focus_exited" from="Nombre" to="." method="_on_nombre_focus_exited"]
+[connection signal="text_changed" from="Nombre" to="." method="_on_nombre_text_changed"]
+[connection signal="text_submitted" from="Nombre" to="." method="_on_nombre_text_submitted"]
+[connection signal="pressed" from="BotonEliminar" to="." method="_on_boton_eliminar_pressed"]

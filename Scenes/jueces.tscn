@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cagja75adksru"]
+
+[ext_resource type="Script" uid="uid://jvvwgij7vk5f" path="res://Scenes/jueces.gd" id="1_2vpf8"]
+[ext_resource type="StyleBox" uid="uid://dd8ndiiacj3eb" path="res://Scenes/Focus_casillas.tres" id="2_x3u5a"]
+
+[node name="Jueces" type="CanvasLayer" unique_id=638706526]
+visible = false
+script = ExtResource("1_2vpf8")
+
+[node name="2_jueces" type="CanvasLayer" parent="." unique_id=1446327851]
+visible = false
+
+[node name="NombreJuez1" type="LineEdit" parent="2_jueces" unique_id=762543074]
+custom_minimum_size = Vector2(200, 35)
+offset_left = 604.0
+offset_top = 517.0
+offset_right = 804.0
+offset_bottom = 557.0
+focus_next = NodePath("../NombreJuez2")
+theme_override_styles/focus = ExtResource("2_x3u5a")
+placeholder_text = "Primer Juez"
+
+[node name="NombreJuez2" type="LineEdit" parent="2_jueces" unique_id=111366957]
+custom_minimum_size = Vector2(200, 35)
+offset_left = 1095.0
+offset_top = 517.0
+offset_right = 1295.0
+offset_bottom = 557.0
+focus_next = NodePath("../NombreJuez3")
+theme_override_styles/focus = ExtResource("2_x3u5a")
+placeholder_text = "Segundo  Juez"
+
+[node name="EpezarTorneo" type="Button" parent="2_jueces" unique_id=661398423]
+offset_left = 860.0
+offset_top = 525.0
+offset_right = 1055.0
+offset_bottom = 556.0
+focus_next = NodePath("../../4_jueces/NombreJuez1")
+text = "JUECES SELECCIONADOS
+"
+
+[node name="4_jueces" type="CanvasLayer" parent="." unique_id=603569467]
+visible = false
+
+[node name="NombreJuez1" type="LineEdit" parent="4_jueces" unique_id=1815214633]
+custom_minimum_size = Vector2(200, 35)
+offset_left = 604.0
+offset_top = 440.0
+offset_right = 804.0
+offset_bottom = 480.0
+focus_next = NodePath("../NombreJuez2")
+theme_override_styles/focus = ExtResource("2_x3u5a")
+placeholder_text = "Primer Juez"
+
+[node name="NombreJuez2" type="LineEdit" parent="4_jueces" unique_id=2035591236]
+custom_minimum_size = Vector2(200, 35)
+offset_left = 1097.0
+offset_top = 440.0
+offset_right = 1297.0
+offset_bottom = 480.0
+focus_next = NodePath("../NombreJuez3")
+theme_override_styles/focus = ExtResource("2_x3u5a")
+placeholder_text = "Segundo  Juez"
+
+[node name="NombreJuez3" type="LineEdit" parent="4_jueces" unique_id=988748268]
+custom_minimum_size = Vector2(200, 35)
+offset_left = 604.0
+offset_top = 593.0
+offset_right = 804.0
+offset_bottom = 633.0
+focus_next = NodePath("../NombreJuez4")
+theme_override_styles/focus = ExtResource("2_x3u5a")
+placeholder_text = "Tercer  Juez"
+
+[node name="NombreJuez4" type="LineEdit" parent="4_jueces" unique_id=2071561389]
+custom_minimum_size = Vector2(200, 35)
+offset_left = 1097.0
+offset_top = 593.0
+offset_right = 1297.0
+offset_bottom = 633.0
+focus_next = NodePath("../../2_jueces/EpezarTorneo")
+theme_override_styles/focus = ExtResource("2_x3u5a")
+placeholder_text = "Quarto Juez"
+
+[node name="EpezarTorneo" type="Button" parent="4_jueces" unique_id=1882294633]
+offset_left = 860.0
+offset_top = 525.0
+offset_right = 1055.0
+offset_bottom = 556.0
+focus_next = NodePath("../../4_jueces/NombreJuez1")
+text = "JUECES SELECCIONADOS
+"
+
+[connection signal="pressed" from="2_jueces/EpezarTorneo" to="." method="_on_epezar_torneo_pressed"]
+[connection signal="pressed" from="4_jueces/EpezarTorneo" to="." method="_on_epezar_torneo_pressed"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd05gijbgg8du"]
+
+[ext_resource type="Script" path="res://Scenes/eleccion_grupos.gd" id="1_te760"]
+[ext_resource type="PackedScene" uid="uid://b00cnhk5qjpdf" path="res://Scenes/grupo.tscn" id="2_xwejk"]
+
+[node name="eleccion_grupos" type="CanvasLayer" node_paths=PackedStringArray("tabla_par", "tabla_imp", "grupo_1", "grupo_2", "grupo_3", "grupo_4")]
+script = ExtResource("1_te760")
+tabla_par = NodePath("CanvasLayer/HBoxContainer/Tabla_Par")
+tabla_imp = NodePath("CanvasLayer/HBoxContainer/Tabla_Impar")
+grupo_1 = NodePath("CanvasLayer/Grupo_1")
+grupo_2 = NodePath("CanvasLayer/Grupo_2")
+grupo_3 = NodePath("CanvasLayer/Grupo_3")
+grupo_4 = NodePath("CanvasLayer/Grupo_4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Grupo_4" parent="CanvasLayer" instance=ExtResource("2_xwejk")]
+offset_left = 999.0
+offset_top = 433.0
+offset_right = 1239.0
+offset_bottom = 813.0
+
+[node name="Grupo_3" parent="CanvasLayer" instance=ExtResource("2_xwejk")]
+offset_left = 999.0
+offset_top = 433.0
+offset_right = 1239.0
+offset_bottom = 813.0
+
+[node name="Grupo_2" parent="CanvasLayer" instance=ExtResource("2_xwejk")]
+offset_left = 999.0
+offset_top = 433.0
+offset_right = 1239.0
+offset_bottom = 813.0
+
+[node name="Grupo_1" parent="CanvasLayer" instance=ExtResource("2_xwejk")]
+offset_left = 999.0
+offset_top = 433.0
+offset_right = 1239.0
+offset_bottom = 813.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 77.0
+offset_top = 210.0
+offset_right = 117.0
+offset_bottom = 250.0
+
+[node name="Tabla_Par" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Tabla_Impar" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Boton_grupo" type="Button" parent="CanvasLayer"]
+offset_left = 1071.0
+offset_top = 843.0
+offset_right = 1190.0
+offset_bottom = 874.0
+text = "CREAR GRUPO"
+
+[connection signal="pressed" from="CanvasLayer/Boton_grupo" to="." method="_on_boton_grupo_pressed"]
+
+[editable path="CanvasLayer/Grupo_4"]
+[editable path="CanvasLayer/Grupo_3"]
+[editable path="CanvasLayer/Grupo_2"]
+[editable path="CanvasLayer/Grupo_1"]

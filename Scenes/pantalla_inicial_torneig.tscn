@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://dhwhx38u0rruv"]
+
+[ext_resource type="Script" uid="uid://t5vreak3oq4x" path="res://Scenes/pantalla_inicial_torneig.gd" id="1_2ufln"]
+[ext_resource type="AudioStream" uid="uid://0ygf6s1dvm3v" path="res://assets/Colp.ogg" id="2_a3hrk"]
+[ext_resource type="Texture2D" uid="uid://rbtarfe08ub7" path="res://assets/MinimalUI/Sin título.jpg" id="3_mk5m3"]
+[ext_resource type="PackedScene" uid="uid://cagja75adksru" path="res://Scenes/jueces.tscn" id="4_vigi6"]
+[ext_resource type="PackedScene" uid="uid://cd05gijbgg8du" path="res://Scenes/elecion_grupos.tscn" id="5_g0wf2"]
+[ext_resource type="PackedScene" uid="uid://d0v336rhjm3ub" path="res://Scenes/pantalla_entrar.tscn" id="5_hboys"]
+[ext_resource type="PackedScene" uid="uid://cysaan3mpnbka" path="res://Scenes/pantalla_torneig.tscn" id="5_xq1mj"]
+[ext_resource type="PackedScene" uid="uid://k7dwxivo8ag4" path="res://Scenes/Finals.tscn" id="7_asamp"]
+[ext_resource type="PackedScene" uid="uid://cyaybpi06v4yw" path="res://Scenes/menu.tscn" id="8_v3rxf"]
+
+[sub_resource type="GDScript" id="GDScript_0mbpc"]
+script/source = "extends Node
+class_name Bus_Signal
+#
+#signal acaba_fase(Actual_Fase: String , Next_fase :String )
+#signal jueces_selecionados(Jueces : Array[String])
+"
+
+[node name="PantallaInicialTorneig" type="Control" unique_id=1194163852 node_paths=PackedStringArray("nom_participant", "grup_participantesPar", "grup_participantesImpar", "eleccion_grupo", "pantalla_entrar_part", "titulo_label")]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ufln")
+nom_participant = NodePath("Pantalla_entrar/HBoxContainer/NomParticipant")
+so_participant = ExtResource("2_a3hrk")
+grup_participantesPar = NodePath("Pantalla_entrar/ParticipantesPar")
+grup_participantesImpar = NodePath("Pantalla_entrar/ParticipantesImpar")
+eleccion_grupo = NodePath("eleccion_grupos")
+pantalla_entrar_part = NodePath("Pantalla_entrar")
+titulo_label = NodePath("Titulo/Titulo")
+
+[node name="Fondo" type="CanvasLayer" parent="." unique_id=110374158]
+layer = 0
+
+[node name="ColorRect2" type="ColorRect" parent="Fondo" unique_id=642607222]
+light_mask = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Titulo" type="CanvasLayer" parent="." unique_id=1926746768]
+
+[node name="Titulo" type="Label" parent="Titulo" unique_id=919458736]
+offset_left = 686.0
+offset_top = 30.0
+offset_right = 1481.0
+offset_bottom = 171.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.607843, 0.607843, 0.607843, 1)
+theme_override_colors/font_shadow_color = Color(0.607843, 0.607843, 0.607843, 1)
+theme_override_colors/font_outline_color = Color(0.607843, 0.607843, 0.607843, 1)
+theme_override_font_sizes/font_size = 50
+text = "TORNEO DE ESPADA ROPERA"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="TextureRect" type="TextureRect" parent="Titulo" unique_id=1694537481]
+offset_left = 496.0
+offset_top = 30.0
+offset_right = 1399.0
+offset_bottom = 778.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_mk5m3")
+
+[node name="Jueces" parent="." unique_id=2046882386 node_paths=PackedStringArray("sig_fase") instance=ExtResource("4_vigi6")]
+sig_fase = NodePath("../Pantalla_entrar")
+
+[node name="Pantalla_entrar" parent="." unique_id=789166324 instance=ExtResource("5_hboys")]
+visible = false
+
+[node name="eleccion_grupos" parent="." unique_id=1493748948 node_paths=PackedStringArray("next_fase") instance=ExtResource("5_g0wf2")]
+next_fase = NodePath("../Pantalla_torneig")
+
+[node name="Pantalla_torneig" parent="." unique_id=1454414497 node_paths=PackedStringArray("fase_final") instance=ExtResource("5_xq1mj")]
+visible = false
+fase_final = NodePath("../Finals")
+
+[node name="CenterContainer" parent="Pantalla_torneig" index="1" unique_id=1913930537]
+visible = true
+offset_left = -14.8
+offset_right = -13.6001
+
+[node name="4Jugadores" parent="Pantalla_torneig/CenterContainer" index="0" unique_id=56609831]
+visible = false
+
+[node name="Finals" parent="." unique_id=196018425 instance=ExtResource("7_asamp")]
+visible = false
+
+[node name="Menu" type="CanvasLayer" parent="." unique_id=136875288]
+layer = 3
+visible = false
+
+[node name="Menu" parent="Menu" unique_id=1563306072 instance=ExtResource("8_v3rxf")]
+top_level = true
+anchors_preset = -1
+anchor_right = 1.667
+anchor_bottom = 1.667
+offset_left = 860.0
+offset_top = 361.0
+offset_right = -2119.64
+offset_bottom = -1105.36
+size_flags_horizontal = 4
+
+[node name="Bus_Signal" type="Node" parent="." unique_id=1449670408]
+script = SubResource("GDScript_0mbpc")
+
+[connection signal="pressed" from="Pantalla_entrar/Button_pass" to="." method="_on_button_pass_pressed"]
+[connection signal="text_submitted" from="Pantalla_entrar/HBoxContainer/NomParticipant" to="." method="_on_nom_participant_text_submitted"]
+[connection signal="pressed" from="Pantalla_entrar/HBoxContainer/Button" to="." method="_on_button_pressed"]
+
+[editable path="Pantalla_entrar"]
+[editable path="eleccion_grupos"]
+[editable path="eleccion_grupos/4 grupos/Grupo_4"]
+[editable path="eleccion_grupos/4 grupos/Grupo_3"]
+[editable path="eleccion_grupos/4 grupos/Grupo_2"]
+[editable path="eleccion_grupos/4 grupos/Grupo_1"]
+[editable path="eleccion_grupos/2 grupos2/Grupo_2"]
+[editable path="eleccion_grupos/2 grupos2/Grupo_1"]
+[editable path="Pantalla_torneig"]

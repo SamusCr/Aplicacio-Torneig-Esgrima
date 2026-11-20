@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://cn84vmjq71ay1"]
+
+[ext_resource type="Script" uid="uid://cyutikubb2n7r" path="res://Scenes/canvas_ganador.gd" id="1_va38g"]
+[ext_resource type="Texture2D" uid="uid://rbtarfe08ub7" path="res://assets/MinimalUI/Sin título.jpg" id="2_ek05d"]
+[ext_resource type="Texture2D" uid="uid://bbkfs0hripj7o" path="res://assets/kenney_particle_pack/spark_07.png" id="2_v6vqv"]
+
+[node name="Canvas_Ganador" type="Control" unique_id=1852154598 node_paths=PackedStringArray("Pantalla", "Text", "Tganador")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_va38g")
+Pantalla = NodePath("ColorRect")
+Text = NodePath("Sprite2D/Texto")
+Tganador = NodePath("Sprite2D/Ganador")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=110796363]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.2)
+size_flags_horizontal = 4
+
+[node name="Sprite2D" type="TextureRect" parent="." unique_id=1079192794]
+layout_mode = 0
+offset_top = 156.0
+offset_bottom = 156.0
+
+[node name="Quadrat-500x500-logo-tag2" type="TextureRect" parent="Sprite2D" unique_id=1663068305]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 121.0
+offset_right = 904.0
+offset_bottom = 869.0
+scale = Vector2(0.390028, 0.390028)
+texture = ExtResource("2_ek05d")
+
+[node name="ColorRect3" type="ColorRect" parent="Sprite2D/Quadrat-500x500-logo-tag2" unique_id=179117779]
+layout_mode = 1
+offset_left = 136.0
+offset_top = 815.0
+offset_right = 761.0
+offset_bottom = 2684.0
+color = Color(0.72214, 0.173431, 4.81307e-07, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Sprite2D/Quadrat-500x500-logo-tag2" unique_id=799229805]
+layout_mode = 1
+offset_left = 135.888
+offset_top = -1907.56
+offset_right = 760.888
+offset_bottom = -38.5553
+color = Color(0.72214, 0.173431, 4.81307e-07, 1)
+
+[node name="Texto" type="RichTextLabel" parent="Sprite2D" unique_id=1673004565]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -56.0
+offset_right = 1924.0
+offset_bottom = 232.0
+theme_override_colors/default_color = Color(0.607843, 0.607843, 0.607843, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center]EL GANADOR DEL TORNEO DE ROPERA EDICION VERANO"
+
+[node name="Ganador" type="RichTextLabel" parent="Sprite2D" unique_id=775488534]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 275.0
+offset_right = 1926.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 200
+bbcode_enabled = true
+text = "[center] wqe"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=762642296]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="ColorRect" unique_id=1783574271]
+position = Vector2(928, 0)
+amount = 30
+texture = ExtResource("2_v6vqv")
+lifetime = 0.1
+randomness = 1.0
+local_coords = true
+draw_order = 1
+emission_shape = 3
+emission_rect_extents = Vector2(960, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 60.0
+color = Color(0, 1, 8.284, 1)

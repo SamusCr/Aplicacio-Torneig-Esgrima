@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://k7dwxivo8ag4"]
+
+[ext_resource type="Script" uid="uid://x1px1stt21t0" path="res://Scenes/Finals.gd" id="1_i0rgm"]
+[ext_resource type="PackedScene" uid="uid://dg7x5hp3qjfcr" path="res://Scenes/combate.tscn" id="1_vpqaj"]
+
+[node name="Control" type="CanvasLayer" unique_id=1336901461 node_paths=PackedStringArray("quart", "semi", "timer")]
+script = ExtResource("1_i0rgm")
+quart = [NodePath("Quart/Combate2"), NodePath("Quart/Combate3"), NodePath("Quart/Combate4"), NodePath("Quart/Combate")]
+semi = [NodePath("Semifinals/Semifinal2"), NodePath("Semifinals/Semifinal1")]
+timer = NodePath("Timer")
+
+[node name="Quart" type="CanvasLayer" parent="." unique_id=1960864651]
+visible = false
+
+[node name="Combate" parent="Quart" unique_id=1243200272 instance=ExtResource("1_vpqaj")]
+position = Vector2(681, 443)
+scale = Vector2(1.2, 1.2)
+
+[node name="Combate2" parent="Quart" unique_id=1712096237 instance=ExtResource("1_vpqaj")]
+position = Vector2(1453, 443)
+scale = Vector2(1.2, 1.2)
+
+[node name="Combate3" parent="Quart" unique_id=808187537 instance=ExtResource("1_vpqaj")]
+position = Vector2(701, 716)
+scale = Vector2(1.2, 1.2)
+
+[node name="Combate4" parent="Quart" unique_id=375728984 instance=ExtResource("1_vpqaj")]
+position = Vector2(1453, 716)
+scale = Vector2(1.2, 1.2)
+
+[node name="Button_semifinales" type="Button" parent="Quart" unique_id=587999697]
+anchors_preset = -1
+anchor_left = 0.526
+anchor_top = 0.519
+anchor_right = 0.58
+anchor_bottom = 0.548
+offset_left = 37.08
+offset_top = -0.520081
+offset_right = 37.3999
+offset_bottom = -0.840027
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+text = "SEMFINALES"
+metadata/_edit_use_anchors_ = true
+
+[node name="Semifinals" type="CanvasLayer" parent="." unique_id=749725417]
+visible = false
+
+[node name="Semifinal1" parent="Semifinals" unique_id=1201550984 instance=ExtResource("1_vpqaj")]
+position = Vector2(801, 580)
+scale = Vector2(1.2, 1.2)
+
+[node name="Semifinal2" parent="Semifinals" unique_id=1761485145 instance=ExtResource("1_vpqaj")]
+position = Vector2(1334, 580)
+scale = Vector2(1.2, 1.2)
+
+[node name="Button_finales" type="Button" parent="Semifinals" unique_id=1134550542]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 87.0
+offset_top = 20.0
+offset_right = 191.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+text = "FINAL"
+metadata/_edit_use_anchors_ = true
+
+[node name="Finals" type="CanvasLayer" parent="." unique_id=231803632]
+visible = false
+
+[node name="Final" parent="Finals" unique_id=237302002 instance=ExtResource("1_vpqaj")]
+position = Vector2(1005, 530)
+scale = Vector2(1.2, 1.2)
+
+[node name="Button" type="Button" parent="Finals" unique_id=1517694618]
+offset_left = 939.0
+offset_top = 647.0
+offset_right = 1088.0
+offset_bottom = 678.0
+scale = Vector2(1.2, 1.2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "FINAL DE TORNEO"
+
+[node name="Timer" type="Timer" parent="." unique_id=1403516]
+wait_time = 1.5
+
+[connection signal="pressed" from="Quart/Button_semifinales" to="." method="_on_button_semifinales_pressed"]
+[connection signal="pressed" from="Semifinals/Button_finales" to="." method="_on_button_finales_pressed"]
+[connection signal="pressed" from="Finals/Button" to="." method="_on_button_pressed"]
+
+[editable path="Quart/Combate"]

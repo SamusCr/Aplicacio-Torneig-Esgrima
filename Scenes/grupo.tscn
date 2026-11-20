@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b00cnhk5qjpdf"]
+
+[ext_resource type="Script" uid="uid://cmdslou1y8v4w" path="res://Scenes/Grupo_seleccion.gd" id="1_bvvde"]
+
+[node name="Grupo" type="ReferenceRect" unique_id=286067015 groups=["grupo"]]
+offset_right = 240.0
+offset_bottom = 494.0
+border_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width = 6.0
+editor_only = false
+script = ExtResource("1_bvvde")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1455464151]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.839216, 0.839216, 0.839216, 1)
+
+[node name="Grupo_1" type="VBoxContainer" parent="." unique_id=1155603966]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="Juez" type="Label" parent="." unique_id=691653450]
+layout_mode = 0
+offset_left = -58.0
+offset_top = 317.0
+offset_right = 182.0
+offset_bottom = 374.0
+rotation = -1.57079
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "JUEZ"
+horizontal_alignment = 1
+vertical_alignment = 1

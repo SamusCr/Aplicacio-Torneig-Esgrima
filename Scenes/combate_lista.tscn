@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4jqiy000ox6a"]
+
+[ext_resource type="PackedScene" uid="uid://6r0m86n1mnfw" path="res://Scenes/casila_tabla.tscn" id="1_y7618"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="casila_tabla2" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("1_y7618")]
+layout_mode = 2
+sprite = NodePath("../casila_tabla/CasillaDesactivada")
+
+[node name="Label" type="Label" parent="casila_tabla2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.957
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.99
+offset_right = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Antoni Guillem "
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "VR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="casila_tabla" parent="." instance=ExtResource("1_y7618")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="casila_tabla"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 83.0
+offset_right = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Antoni Guillem "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="combate_lista" type="Control" parent="."]
+layout_mode = 2

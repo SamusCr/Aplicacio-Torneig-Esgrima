@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cd05gijbgg8du"]
+
+[ext_resource type="Script" uid="uid://l41i2t2kkqmn" path="res://Scenes/eleccion_grupos.gd" id="1_te760"]
+[ext_resource type="PackedScene" uid="uid://b00cnhk5qjpdf" path="res://Scenes/grupo.tscn" id="2_xwejk"]
+
+[node name="eleccion_grupos" type="CanvasLayer" unique_id=28541567 node_paths=PackedStringArray("tabla_par", "tabla_imp", "grupo_1", "grupo_2", "grupo_3", "grupo_4")]
+visible = false
+script = ExtResource("1_te760")
+tabla_par = NodePath("HBoxContainer/Tabla_Par")
+tabla_imp = NodePath("HBoxContainer/Tabla_Impar")
+grupo_1 = NodePath("4 grupos/Grupo_1")
+grupo_2 = NodePath("4 grupos/Grupo_2")
+grupo_3 = NodePath("4 grupos/Grupo_3")
+grupo_4 = NodePath("4 grupos/Grupo_4")
+
+[node name="4 grupos" type="CanvasLayer" parent="." unique_id=287618657]
+layer = 2
+visible = false
+
+[node name="Grupo_4" parent="4 grupos" unique_id=1824174598 instance=ExtResource("2_xwejk")]
+offset_left = 1513.0
+offset_top = 308.0
+offset_right = 1753.0
+offset_bottom = 788.0
+
+[node name="Grupo_3" parent="4 grupos" unique_id=1918539701 instance=ExtResource("2_xwejk")]
+offset_left = 1207.0
+offset_top = 308.0
+offset_right = 1447.0
+offset_bottom = 788.0
+
+[node name="Grupo_2" parent="4 grupos" unique_id=1428191857 instance=ExtResource("2_xwejk")]
+offset_left = 897.0
+offset_top = 308.0
+offset_right = 1137.0
+offset_bottom = 788.0
+
+[node name="Grupo_1" parent="4 grupos" unique_id=782592279 instance=ExtResource("2_xwejk")]
+offset_left = 587.0
+offset_top = 308.0
+offset_right = 827.0
+offset_bottom = 788.0
+
+[node name="ButtonEmpezar" type="Button" parent="4 grupos" unique_id=1291786945]
+visible = false
+offset_left = 1081.0
+offset_top = 871.0
+offset_right = 1252.0
+offset_bottom = 902.0
+text = "EMPEZAR COMBATES"
+
+[node name="ButtonGrupos" type="Button" parent="4 grupos" unique_id=409735621]
+offset_left = 1109.0
+offset_top = 871.0
+offset_right = 1228.0
+offset_bottom = 902.0
+text = "CREAR GRUPO"
+
+[node name="2 grupos2" type="CanvasLayer" parent="." unique_id=472258733]
+layer = 2
+visible = false
+
+[node name="Grupo_2" parent="2 grupos2" unique_id=437447432 instance=ExtResource("2_xwejk")]
+offset_left = 1287.0
+offset_top = 416.0
+offset_right = 1527.0
+offset_bottom = 896.0
+
+[node name="Grupo_1" parent="2 grupos2" unique_id=310788543 instance=ExtResource("2_xwejk")]
+offset_left = 668.0
+offset_top = 416.0
+offset_right = 908.0
+offset_bottom = 896.0
+
+[node name="ButtonEmpezar" type="Button" parent="2 grupos2" unique_id=1537855405]
+visible = false
+offset_left = 1027.0
+offset_top = 659.0
+offset_right = 1198.0
+offset_bottom = 690.0
+text = "EMPEZAR COMBATES"
+
+[node name="ButtonGrupos" type="Button" parent="2 grupos2" unique_id=231114233]
+offset_left = 1054.0
+offset_top = 659.0
+offset_right = 1173.0
+offset_bottom = 690.0
+text = "CREAR GRUPO"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=541726797]
+offset_left = 26.0
+offset_top = 68.0
+offset_right = 66.0
+offset_bottom = 108.0
+
+[node name="Tabla_Par" type="VBoxContainer" parent="HBoxContainer" unique_id=329077217]
+layout_mode = 2
+
+[node name="Tabla_Impar" type="VBoxContainer" parent="HBoxContainer" unique_id=8562313]
+layout_mode = 2
+
+[connection signal="pressed" from="4 grupos/ButtonEmpezar" to="." method="_on_button_empezar_pressed"]
+[connection signal="pressed" from="4 grupos/ButtonGrupos" to="." method="_on_button_grupos_pressed"]
+[connection signal="pressed" from="4 grupos/ButtonGrupos" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="2 grupos2/ButtonEmpezar" to="." method="_on_button_empezar_pressed"]
+[connection signal="pressed" from="2 grupos2/ButtonGrupos" to="." method="_on_button_grupos_pressed"]
+[connection signal="pressed" from="2 grupos2/ButtonGrupos" to="." method="_on_button_pressed"]
+
+[editable path="4 grupos/Grupo_4"]
+[editable path="4 grupos/Grupo_3"]
+[editable path="4 grupos/Grupo_2"]
+[editable path="4 grupos/Grupo_1"]
+[editable path="2 grupos2/Grupo_2"]
+[editable path="2 grupos2/Grupo_1"]

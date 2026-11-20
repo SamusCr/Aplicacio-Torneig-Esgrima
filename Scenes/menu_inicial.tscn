@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://cx12erilp84wp"]
+
+[ext_resource type="Script" uid="uid://db56anulgwdk2" path="res://Scenes/menu_inicial.gd" id="1_l8gok"]
+[ext_resource type="StyleBox" uid="uid://dd8ndiiacj3eb" path="res://Scenes/Focus_casillas.tres" id="2_syou6"]
+[ext_resource type="PackedScene" uid="uid://cyaybpi06v4yw" path="res://Scenes/menu.tscn" id="2_v18e8"]
+[ext_resource type="Theme" uid="uid://c0f2dw4lr4db3" path="res://assets/DarkTheme/StyleBox/new_theme.tres" id="4_e4d8p"]
+
+[node name="Menu_Inicial" type="Control" unique_id=618610328 node_paths=PackedStringArray("nombre_torneo", "numero_jueces", "online")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l8gok")
+nombre_torneo = NodePath("Nombre_Torneo")
+numero_jueces = NodePath("Num_Jueces")
+online = NodePath("Online")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1028775027]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Nombre_Torneo" type="LineEdit" parent="." unique_id=1181388731]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -46.5
+offset_right = 210.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = ExtResource("2_syou6")
+placeholder_text = "TÍTULO DE TORNEO"
+alignment = 1
+max_length = 50
+context_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="Num_Jueces" type="OptionButton" parent="." unique_id=957555390]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 606.0
+offset_right = 994.0
+offset_bottom = 637.0
+selected = 0
+item_count = 2
+popup/item_0/text = "2"
+popup/item_0/id = 2
+popup/item_1/text = "4"
+popup/item_1/id = 4
+
+[node name="Empezar_Torneo" type="Button" parent="." unique_id=319949572]
+layout_mode = 0
+offset_left = 892.0
+offset_top = 657.0
+offset_right = 1043.0
+offset_bottom = 688.0
+text = "EMPEZAR "
+
+[node name="Menu" parent="." unique_id=880172215 instance=ExtResource("2_v18e8")]
+visible = false
+layout_mode = 1
+offset_left = 847.0
+offset_top = 402.0
+offset_right = -852.0
+offset_bottom = -344.0
+
+[node name="Reiniciar" parent="Menu" index="2"]
+visible = false
+
+[node name="MenuPrincipal" parent="Menu" index="3"]
+visible = false
+
+[node name="Salir" parent="Menu" index="4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = -15.5
+offset_right = 110.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2036420736]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = 28.0
+offset_right = 229.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Número de jueces (max 10 participantes por cada juez)"
+
+[node name="Label" type="Label" parent="." unique_id=1938433792]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 239.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.607843, 0.607843, 0.607843, 1)
+theme_override_colors/font_shadow_color = Color(0.607843, 0.607843, 0.607843, 1)
+theme_override_colors/font_outline_color = Color(0.607843, 0.607843, 0.607843, 1)
+theme_override_font_sizes/font_size = 50
+text = " TORNEOS DE ESGRIMA HISTÓRICA"
+horizontal_alignment = 1
+
+[node name="Online" type="CheckButton" parent="." unique_id=173337046]
+layout_mode = 0
+offset_left = 1198.0
+offset_top = 508.0
+offset_right = 1298.0
+offset_bottom = 539.0
+theme = ExtResource("4_e4d8p")
+theme_override_colors/font_color = Color(0.017732333, 0.01773242, 0.017732358, 1)
+theme_override_colors/font_focus_color = Color(0.0056611365, 0.005661154, 0.005661178, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.92156863, 0, 1)
+theme_override_colors/font_hover_color = Color(0.000113827744, 0.00011382807, 0.00011382859, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.9098039, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.24313726, 0.84313726, 0.24313726, 1)
+text = "Online"
+
+[connection signal="text_changed" from="Nombre_Torneo" to="." method="_on_nombre_torneo_text_changed"]
+[connection signal="pressed" from="Empezar_Torneo" to="." method="_on_empezar_torneo_pressed"]
+
+[editable path="Menu"]

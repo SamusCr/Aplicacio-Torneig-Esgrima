@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyaybpi06v4yw"]
+
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_155ln"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1699.0
+offset_bottom = -746.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_155ln")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.329412, 0.329412, 0.329412, 1)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.235294, 0.235294, 0.235294, 1)
+border_width = 10.0
+editor_only = false
+
+[node name="Reiniciar" type="Button" parent="."]
+layout_mode = 0
+offset_top = 95.0
+offset_right = 221.0
+offset_bottom = 126.0
+text = "Reiniciar Torneo"
+
+[node name="MenuPrincipal" type="Button" parent="."]
+layout_mode = 0
+offset_top = 144.0
+offset_right = 221.0
+offset_bottom = 175.0
+text = "Menu Principal"
+
+[node name="Salir" type="Button" parent="."]
+layout_mode = 0
+offset_top = 191.0
+offset_right = 221.0
+offset_bottom = 222.0
+text = "Salir"
+
+[connection signal="pressed" from="Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="MenuPrincipal" to="." method="_on_menu_principal_pressed"]
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]

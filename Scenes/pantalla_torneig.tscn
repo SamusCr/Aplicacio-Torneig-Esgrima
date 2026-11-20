@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://cysaan3mpnbka"]
+
+[ext_resource type="Script" uid="uid://dhrxj2jrhb16v" path="res://Scenes/crear_combats.gd" id="1_4bfep"]
+[ext_resource type="PackedScene" uid="uid://bcl14x0dq02ix" path="res://Scenes/taula_emparellar.tscn" id="1_git1e"]
+
+[node name="Pantalla_torneig" type="CanvasLayer" unique_id=218516331 node_paths=PackedStringArray("tabla_participantes", "anim")]
+script = ExtResource("1_4bfep")
+tabla_participantes = NodePath("Tabla_participantes")
+anim = NodePath("ColorRect")
+
+[node name="Tabla_participantes" type="VBoxContainer" parent="." unique_id=2053706943]
+offset_left = 37.0
+offset_top = 161.0
+offset_right = 149.0
+offset_bottom = 161.0
+scale = Vector2(0.5, 0.5)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1913930537]
+visible = false
+anchors_preset = -1
+anchor_left = 0.19
+anchor_top = 0.165
+anchor_right = 0.955
+anchor_bottom = 0.863
+offset_left = 57.2
+offset_top = -6.20001
+offset_right = 58.3999
+offset_bottom = -44.04
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="4Jugadores" type="GridContainer" parent="CenterContainer" unique_id=56609831]
+layout_mode = 2
+theme_override_constants/h_separation = 50
+columns = 2
+
+[node name="Taula" parent="CenterContainer/4Jugadores" unique_id=971614570 groups=["grupo"] instance=ExtResource("1_git1e")]
+layout_mode = 2
+
+[node name="Taula2" parent="CenterContainer/4Jugadores" unique_id=849932180 groups=["grupo"] instance=ExtResource("1_git1e")]
+layout_mode = 2
+
+[node name="Taula3" parent="CenterContainer/4Jugadores" unique_id=1760395074 groups=["grupo"] instance=ExtResource("1_git1e")]
+layout_mode = 2
+
+[node name="Taula4" parent="CenterContainer/4Jugadores" unique_id=1871018130 groups=["grupo"] instance=ExtResource("1_git1e")]
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="." unique_id=896139782]
+visible = false
+anchors_preset = -1
+anchor_left = 0.19
+anchor_top = 0.165
+anchor_right = 0.955
+anchor_bottom = 0.884
+offset_left = 57.2
+offset_top = -6.20001
+offset_right = 58.4
+offset_bottom = -5.72009
+
+[node name="2Jugadores" type="GridContainer" parent="CenterContainer2" unique_id=631365671]
+layout_mode = 2
+columns = 2
+
+[node name="Taula" parent="CenterContainer2/2Jugadores" unique_id=1081985004 groups=["grupo"] instance=ExtResource("1_git1e")]
+layout_mode = 2
+
+[node name="Taula2" parent="CenterContainer2/2Jugadores" unique_id=903613037 groups=["grupo"] instance=ExtResource("1_git1e")]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=633627047]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 31.0
+offset_top = -498.0
+offset_right = 336.0
+offset_bottom = -137.0
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "FILAS --> puntos victoria
+COLUMNAS--> Puntos en contra
+
+Se sumarán  las victorias i los puntos en contra de cada jugador , los dos con mayores victorias ganarán. En caso de empate el que tenga menos puntos en contra. En caso de doble empate, los empatados haran un combate extra
+
+Teclas  validas:
+0,1,2,3 -> Puntos en contra
+V,v --> 1 punto de victoria si lo cuentas en fila, 3 puntos en contra si lo cuentas en  columna"
+
+[node name="PantallaCombats" type="VBoxContainer" parent="." unique_id=1745898589]
+anchors_preset = -1
+anchor_left = 0.214
+anchor_top = 0.195
+anchor_right = 0.997
+anchor_bottom = 0.994
+offset_left = -367.88
+offset_top = 302.4
+offset_right = -1685.24
+offset_bottom = -378.52
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Button" type="Button" parent="PantallaCombats" unique_id=327682196]
+layout_mode = 2
+text = "SEMIFINALES"
+
+[node name="HBoxContainer" type="GridContainer" parent="PantallaCombats" unique_id=1681940735]
+layout_mode = 2
+columns = 2
+
+[node name="Grupo1" type="Button" parent="PantallaCombats/HBoxContainer" unique_id=715817242]
+layout_mode = 2
+text = "GRUPO1"
+
+[node name="Grupo2" type="Button" parent="PantallaCombats/HBoxContainer" unique_id=1923394313]
+layout_mode = 2
+text = "GRUPO2"
+
+[node name="Grupo3" type="Button" parent="PantallaCombats/HBoxContainer" unique_id=1562783075]
+layout_mode = 2
+text = "GRUPO3"
+
+[node name="Grupo4" type="Button" parent="PantallaCombats/HBoxContainer" unique_id=1795941325]
+layout_mode = 2
+text = "GRUPO4"
+
+[node name="Todos" type="Button" parent="PantallaCombats/HBoxContainer" unique_id=419041419]
+layout_mode = 2
+text = "TODOS"
+
+[node name="Loop" type="Button" parent="PantallaCombats/HBoxContainer" unique_id=499265159]
+layout_mode = 2
+text = "LOOP
+"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1707648958]
+offset_left = 340.0
+offset_top = 172.0
+offset_right = 1888.0
+offset_bottom = 1036.0
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Timer" type="Timer" parent="." unique_id=516878714]
+wait_time = 5.0
+
+[node name="ButtonTest" type="Button" parent="." unique_id=1676806346]
+offset_left = 93.0
+offset_top = 823.0
+offset_right = 147.0
+offset_bottom = 854.0
+text = "Test 1"
+
+[connection signal="pressed" from="PantallaCombats/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PantallaCombats/HBoxContainer/Grupo1" to="." method="_on_grupo_1_pressed"]
+[connection signal="pressed" from="PantallaCombats/HBoxContainer/Grupo2" to="." method="_on_grupo_2_pressed"]
+[connection signal="pressed" from="PantallaCombats/HBoxContainer/Grupo3" to="." method="_on_grupo_3_pressed"]
+[connection signal="pressed" from="PantallaCombats/HBoxContainer/Grupo4" to="." method="_on_grupo_4_pressed"]
+[connection signal="pressed" from="PantallaCombats/HBoxContainer/Todos" to="." method="_on_todos_pressed"]
+[connection signal="pressed" from="PantallaCombats/HBoxContainer/Loop" to="." method="_on_loop_pressed"]
+[connection signal="pressed" from="ButtonTest" to="." method="_on_button_test_pressed"]

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bcl14x0dq02ix"]
+
+[ext_resource type="Script" uid="uid://vdusk2gcs1jw" path="res://Scenes/taula_emparellar.gd" id="1_8cgyu"]
+
+[node name="Taula" type="CenterContainer" unique_id=246307713 node_paths=PackedStringArray("Grupo_Participantes", "columna_participantes", "fila_contrincantes", "tabla_combates", "modelo_gradilla_Nombre", "puntauciones_victoria", "puntauciones_contra") groups=["Tabla"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_8cgyu")
+Grupo_Participantes = []
+columna_participantes = NodePath("VBoxContainer/HBoxContainer2/Nombre_participantes")
+fila_contrincantes = NodePath("VBoxContainer/Contrincantes/Nombre_Contrincantes")
+tabla_combates = NodePath("VBoxContainer/HBoxContainer2/Combates")
+modelo_gradilla_Nombre = NodePath("VBoxContainer/Contrincantes/Modelo_Vacio")
+puntauciones_victoria = NodePath("VBoxContainer/HBoxContainer2/Puntauciones_victoria")
+puntauciones_contra = NodePath("VBoxContainer/HBoxContainer2/Puntauciones_contra")
+metadata/_edit_pinned_properties_ = [&"Grupo_Participantes"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1804044089]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1442620186]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "EMPATE"
+horizontal_alignment = 1
+
+[node name="Contrincantes" type="HBoxContainer" parent="VBoxContainer" unique_id=861326582]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Modelo_Vacio" type="Label" parent="VBoxContainer/Contrincantes" unique_id=486506006]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Nombre_Contrincantes" type="HBoxContainer" parent="VBoxContainer/Contrincantes" unique_id=1990200461]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=344390469]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Nombre_participantes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=965613101]
+layout_mode = 2
+
+[node name="Combates" type="GridContainer" parent="VBoxContainer/HBoxContainer2" unique_id=2071437095]
+layout_mode = 2
+columns = 7
+
+[node name="Puntauciones_victoria" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1107825749]
+layout_mode = 2
+
+[node name="Puntauciones_contra" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2" unique_id=1713855024]
+layout_mode = 2
